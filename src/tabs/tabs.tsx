@@ -19,7 +19,9 @@ export function Tabs<T extends string>({
   idPrefix: string;
 }) {
   return (
-    <div role="tablist" aria-label={label} className="flex gap-1 border-b border-edge mb-5">
+    <div role="tablist" aria-label={label} className="relative flex gap-1 mb-5">
+      {/* ONE continuous hairline under the whole row — never per-tab bars. */}
+      <span aria-hidden className="absolute inset-x-0 bottom-0 h-px bg-edge" />
       {tabs.map((tab) => (
         <button
           key={tab.id}
@@ -36,10 +38,10 @@ export function Tabs<T extends string>({
               onChange(tabs[(index - 1 + tabs.length) % tabs.length].id);
           }}
           className={cx(
-            "px-3 py-2 text-[13px] -mb-px border-b-2 transition-colors",
+            "relative px-3 py-2 text-[13px] transition-colors",
             active === tab.id
-              ? "border-brand text-ink font-medium"
-              : "border-transparent text-ink-dim hover:text-ink",
+              ? "text-ink font-medium after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:bg-brand"
+              : "text-ink-dim hover:text-ink",
           )}
         >
           {tab.label()}
