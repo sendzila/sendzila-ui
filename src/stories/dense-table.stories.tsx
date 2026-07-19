@@ -1,4 +1,4 @@
-import { StatusBadge } from "..";
+import { StatusBadge } from "../status-badge/status-badge";
 
 const ROWS = [
   ["hello@acme.com", "Welcome to Acme", "delivered", "2m ago"],

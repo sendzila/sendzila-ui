@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { Button, Drawer, Modal } from "..";
+
+import { Button } from "../button/button";
+import { Modal } from "./modal";
 
 export const ModalStory = () => {
   const [open, setOpen] = useState(false);
@@ -13,18 +15,6 @@ export const ModalStory = () => {
           <Button kind="primary">Send</Button>
         </div>
       </Modal>
-    </div>
-  );
-};
-
-export const DrawerStory = () => {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="p-6">
-      <Button onClick={() => setOpen(true)}>Open drawer</Button>
-      <Drawer open={open} onClose={() => setOpen(false)} title={<span>msg_01hf…</span>}>
-        <p className="text-[13px] text-ink-dim">Message detail body.</p>
-      </Drawer>
     </div>
   );
 };

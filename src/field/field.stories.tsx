@@ -1,4 +1,6 @@
-import { Field, Input, Select } from "..";
+import { Field } from "./field";
+import { Input } from "../input/input";
+import { Select } from "../select/select";
 
 export const TextInput = () => (
   <div className="p-6 max-w-sm space-y-4">
